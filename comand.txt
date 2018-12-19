@@ -1,0 +1,20 @@
+set DEBUG=* &;npm start=>myapp run
+set DEBUG=*&,start node=>node start
+set DEBUG=*&,start myapp=>myapp start
+
+
+Auto-reload files in Node.js
+Install:
+To use nodemon:
+
+$ npm install nodemon -g
+$ nodemon app.js
+
+command:
+==>nodemon npm start
+
+or using Debug mode
+
+==>DEBUG=yourapp:* nodemon npm start
+
+https://code.visualstudio.com/docs/nodejs/nodejs-tutorial

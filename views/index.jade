@@ -1,0 +1,46 @@
+extends layout
+block content
+  h1= title
+  p Welcome to #{title}
+  html
+  head
+  body
+   - time = "AM"
+    -firstnameSet1 = (firstnameSet == "undefined") ? " " : firstnameSet
+      .container
+       form#uploadForm(enctype= 'multipart/form-data', method='post', action='/users/adduser')
+        .row
+          .col-25
+            label(for='fname') First Name
+          .col-75
+            input#fname(type='text', name='firstname',value='#{firstnameSet}', placeholder='Your first name..')
+            <p class="alert alert-danger">#{firstNameRequiredmsgerr}
+        .row
+          .col-25
+            label(for='lname') Last Name
+          .col-75
+            input#lname(type='text', name='lastname',value='#{lastnameSet}', placeholder='Your last name..')
+            <p class="alert alert-danger">#{lastNameRequiredmsgerr}
+        .row
+          .col-25
+            label(for='country') Country
+          .col-75
+            select#country(name='country')
+              option(value='australia') Australia
+              option(value='canada') Canada
+              option(value='usa') USA
+        .row
+          .col-25
+            label(for='subject') Subject
+          .col-75
+            textarea#subject(name='subject', placeholder='Write something..', style='height:200px')
+        .row
+          .col-25
+            label(for='subject') Photo Upload
+          .col-75
+            input(type='file', name='myfile')
+            br
+            br
+            span#status
+        .row
+          input(type='submit', value='Submit')
